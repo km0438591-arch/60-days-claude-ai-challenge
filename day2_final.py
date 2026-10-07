@@ -1,25 +1,22 @@
-# Day 2 - Smart Prompt Generator for Kanpur Businesses
-# Created by Kanchan - Kanpur
+# Day 2: What Is Prompt Engineering
+# By Kanchan, Kanpur
+# Concept: Clear, Specific, Context + Instruction + Example = Good Prompt
 
-def generate_prompt(business_type, goal):
-    prompt = f"""
-    You are an AI expert for {business_type} in Kanpur.
-    Goal: {goal}
-    Location: Kanpur, Uttar Pradesh
-    Language: Mix of Hindi + English (Kanpuriya style)
-    Task: Create a detailed, helpful, step-by-step plan.
-    Make it practical for local audience.
-    """
-    return prompt
+# BAD Prompt vs GOOD Prompt
+bad_prompt = "Write about kirana store"
 
-# Example 1 - Kirana Store
-print("--- PROMPT 1 ---")
-print(generate_prompt("Kirana Store in Kakadeo", "Increase daily sales using WhatsApp"))
+good_prompt = """
+Context: You are helping a Kirana store owner in Kakadeo, Kanpur.
+Task: Write 3 WhatsApp marketing messages in Hindi + English mix.
+Audience: Local families in Kanpur
+Tone: Friendly, Kanpuriya
+Constraint: Each message < 30 words, include UPI payment mention.
+Example: "Namaste! Aaj daal pe 10% off hai, Kakadeo store me. UPI se pay karo!"
+Now generate 3 new messages.
+"""
 
-# Example 2 - Coaching
-print("\n--- PROMPT 2 ---")
-print(generate_prompt("IIT Coaching in Kanpur", "Get more students from KDA market"))
-
-# Example 3 - Your Goal
-print("\n--- PROMPT 3 ---")
-print(generate_prompt("AI Tools for Kanpur", "Help local shopkeepers go digital"))
+print("BAD PROMPT:")
+print(bad_prompt)
+print("\nGOOD PROMPT (Prompt Engineering Applied):")
+print(good_prompt)
+print("\nDay 2 Done - Kanchan")
