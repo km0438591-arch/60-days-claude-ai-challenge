@@ -1,54 +1,26 @@
-# Day 10: Claude Tools & Function Calling
-# By Kanchan from Kanpur - 60 Days Claude Challenge
-# Use Case: Kanpur Kirana ka Smart Assistant jo Tools use kare
-
-import json
-from datetime import datetime
-
-# Mock Tools (Asli me ye Claude automatically call karta hai)
-def check_stock(item):
-    stock_db = {"aata": 100, "daal": 5, "tel": 40, "biscuit": 8}
-    return stock_db.get(item.lower(), 0)
-
-def get_weather_kanpur():
-    return "Kanpur me aaj 42°C hai, loo chal rahi hai. Evening me customers kam aayenge."
-
-def send_whatsapp_alert(message):
-    return f"WhatsApp sent to Owner: {message}"
-
-def calculate_profit(sales):
-    return sales * 0.15  # 15% margin
-
-print("🛠️ Day 10: Claude Tools Demo - Kanpur Kirana Smart Assistant")
-print("User Query: 'Daal ka stock check karo aur owner ko alert bhejo'\n")
-
-# Claude's Thinking Process
-user_query = "Daal ka stock check karo"
-
-# Tool 1 Call
-stock = check_stock("daal")
-print(f"[Claude Tool Call 1: check_stock('daal')] -> Result: {stock}kg bacha hai")
-
-if stock < 10:
-    # Tool 2 Call
-    alert = send_whatsapp_alert(f"ALERT: Daal ka stock low hai - sirf {stock}kg bacha hai, kal Mandi se lana hai")
-    print(f"[Claude Tool Call 2: send_whatsapp_alert] -> Result: {alert}")
-    
-    # Tool 3 Call
-    weather = get_weather_kanpur()
-    print(f"[Claude Tool Call 3: get_weather_kanpur] -> Result: {weather}")
-    print(f"-> Claude Insight: Garmi zyada hai toh Daal kam bikegi, 20kg hi order karo")
-
-# Final Answer by Claude after using Tools
-final_answer = f"""
-✅ Task Complete!
-- Daal Stock: {stock}kg (LOW)
-- Action: Owner ko WhatsApp alert bhej diya
-- Weather Context: {weather}
-- Suggestion: Kal subah 20kg Daal order karo
-
-This is Function Calling - Claude ne khud tools use kiye!
-"""
-
-print("\n" + final_answer)
-print("\nDay 10 Complete - Tools Mastered! By Kanchan from Kanpur")
+<!-- Day 10: Personal Portfolio Website with Claude -->
+<!-- By Kanchan from Kanpur -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kanchan - AI Developer | Kanpur</title>
+<style>
+body{font-family:Arial; background:#fff7ed; padding:20px; text-align:center;}
+.card{background:white; padding:20px; border-radius:15px; max-width:600px; margin:auto; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+h1{color:#ff6b00;}
+a{color:#ff6b00; text-decoration:none; font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>👩‍💻 Kanchan - AI Developer from Kanpur</h1>
+<p>60 Days Claude Challenge Participant | ABTalks</p>
+<p><b>Goal:</b> Remote AI Internship, Not 17k Factory Job</p>
+<h3>🚀 Projects (Day 1-10)</h3>
+<p>✅ Kirana Sales Dashboard<br>✅ Nutrition Analytics App<br>✅ Prompt Chaining Tool</p>
+<h3>🔗 Links</h3>
+<p><a href="https://github.com/km0438591-arch/60-days-claude-ai-challenge">GitHub Portfolio</a></p>
+<p>Location: Kanpur, UP | Open to Remote</p>
+</div>
+</body>
+</html>
