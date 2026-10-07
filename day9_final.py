@@ -1,37 +1,41 @@
-# Day 9: Prompt Chaining - Multi-Step AI Workflow
-# By Kanchan from Kanpur - 60 Days Claude Challenge
-# Use Case: Kanpur Kirana ke liye Auto Content Generator
+# Day 9: Build & Enhance an AI Nutrition Analytics App
+# By Kanchan from Kanpur - ABTalks 60 Days Claude Challenge
 
-print("🔗 Day 9: Prompt Chaining Demo - Kanpur Kirana")
+print("🥗 Day 9: AI Nutrition Analytics App - Kanpur Thali Edition")
 
-# Step 1, 2, 3 ko jodna hi Prompt Chaining hai
+# Kanpur ki Thali ka Data
+food_items = {
+    "Samosa (1pc)": {"calories": 250, "protein": 4, "carbs": 30, "fat": 15, "note": "High Fat - Avoid daily"},
+    "Dal Chawal (1 plate)": {"calories": 350, "protein": 12, "carbs": 50, "fat": 8, "note": "Balanced - Good for lunch"},
+    "Lassi (1 glass)": {"calories": 180, "protein": 6, "carbs": 20, "fat": 7, "note": "Good Protein"},
+    "Biscuit (4pc)": {"calories": 200, "protein": 2, "carbs": 28, "fat": 9, "note": "High Sugar - Students avoid"},
+    "Chana (100g)": {"calories": 180, "protein": 9, "carbs": 25, "fat": 3, "note": "Best for VVDN interview energy"}
+}
 
-def prompt_chain_for_kirana(product):
-    
-    # CHAIN STEP 1: Idea Generation
-    prompt1 = f"You are a Kanpur local marketing expert. Give 1 catchy offer idea for {product} for Kakadeo students."
-    output1 = f"Offer Idea for {product}: 'Student Combo - Buy 1kg {product} + Free Kurkure for Rs 99 only!'"
-    print(f"\n[CHAIN 1 - Idea]: {prompt1}")
-    print(f"-> Output 1: {output1}")
+def analyze_meal(items_eaten):
+    total_cal = 0
+    total_protein = 0
+    print(f"\n--- Your Meal Analysis: {items_eaten} ---")
+    for item in items_eaten:
+        if item in food_items:
+            data = food_items[item]
+            total_cal += data["calories"]
+            total_protein += data["protein"]
+            print(f"{item}: {data['calories']} cal | {data['note']}")
 
-    # CHAIN STEP 2: Convert to WhatsApp Message
-    prompt2 = f"Convert this offer '{output1}' into a short WhatsApp message in Hinglish with emojis."
-    output2 = f"🏪 Kakadeo Offer! 📚 {product} ka Student Combo sirf Rs 99 me + FREE Kurkure! Aaj shaam 9 baje tak only! Jaldi aao! 🏃‍♀️"
-    print(f"\n[CHAIN 2 - WhatsApp]: {prompt2}")
-    print(f"-> Output 2: {output2}")
+    print(f"\nTotal Calories: {total_cal}")
+    print(f"Total Protein: {total_protein}g")
 
-    # CHAIN STEP 3: Create Poster Text + Action Plan
-    prompt3 = f"For this message '{output2}', give poster headline + shop action plan"
-    output3 = f"Poster Headline: 'KAKADEO STUDENT DHAMAKA - {product.upper()} @ 99/-' | Action: 1. Print A4 poster 2. WhatsApp Status 3. Announce in shop"
-    print(f"\n[CHAIN 3 - Poster & Action]: {prompt3}")
-    print(f"-> Output 3: {output3}")
+    # Claude AI Insight
+    if total_cal > 600:
+        print("🤖 Claude Alert: Calories zyada hain! Shaam ko halka khana khao.")
+    if total_protein < 10:
+        print("🤖 Claude Suggestion: Protein kam hai - Chana / Lassi add karo.")
 
-    print(f"\n✅ FINAL CHAIN RESULT FOR {product.upper()}: Ready to post!")
+# Test 1: Student Diet
+analyze_meal(["Samosa (1pc)", "Biscuit (4pc)"])
+print("\n" + "="*40)
+# Test 2: Healthy Diet
+analyze_meal(["Dal Chawal (1 plate)", "Chana (100g)"])
 
-# Test with 2 products
-prompt_chain_for_kirana("Aata")
-print("\n" + "="*60 + "\n")
-prompt_chain_for_kirana("Biscuit")
-
-print("\nDay 9 Complete - Prompt Chaining Mastered!")
-print("By Kanchan from Kanpur")
+print("\nDay 9 Complete - Nutrition App Ready!")
